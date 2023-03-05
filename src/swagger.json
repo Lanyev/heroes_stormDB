@@ -1,0 +1,116 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Mi API de peliculas tipo Netflix",
+    "description": "Esta es una API para la administracion de peliculas tipo Netflix",
+    "termsOfService": "http://swagger.io/terms/",
+    "contact": {
+      "email": "lanyev@gmail.com"
+    },
+    "version": "1.0.0"
+  },
+  "host": "localhost:9000",
+  "basePath": "/",
+  "schemes": ["http"],
+  "consumes": ["application/json"],
+  "produces": ["application/json"],
+  "paths": {
+    "/api/v1/users": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Obtener todos los usuarios"
+          },
+          "400": {
+            "description": "Ocurrio un error al obtener los usuarios"
+          }
+        }
+      }
+    },
+    "/api/v1/movies": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Obtener todas las peliculas"
+          },
+          "400": {
+            "description": "Ocurrio un error al obtener las peliculas"
+          }
+        }
+      }
+    },
+    "/api/v1/movies/{moviesId}": {
+      "get": {
+        "parameters": [
+          {
+            "name": "moviesId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Obtener una pelicula por su id"
+          },
+          "400": {
+            "description": "Ocurrio un error al obtener la pelicula"
+          }
+        }
+      }
+    },
+    "/api/v1/genres": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Obtener todos los generos"
+          },
+          "400": {
+            "description": "Ocurrio un error al obtener los generos"
+          }
+        }
+      }
+    },
+    "/api/v1/genres/{genresId}": {
+      "get": {
+        "parameters": [
+          {
+            "name": "genresId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Obtener un genero por su id"
+          },
+          "400": {
+            "description": "Ocurrio un error al obtener el genero"
+          }
+        }
+      }
+    },
+
+    "/api/v1/users/{userId}": {
+      "get": {
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Obtener un usuario por su id"
+          },
+          "400": {
+            "description": "Ocurrio un error al obtener el usuario"
+          }
+        }
+      }
+    }
+  }
+}
