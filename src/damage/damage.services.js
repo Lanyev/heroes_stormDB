@@ -40,6 +40,11 @@ const createNewDamageEntry = (req, res) => {
         data: err,
         message: "Something bad creating new DamageEntry",
         res,
+        fields: {
+          userId: "User ID is required",
+          heroId: "Hero ID is required",
+          damageDeal: "Damage Deal is required",
+        },
       });
     });
 };

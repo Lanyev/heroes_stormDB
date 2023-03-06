@@ -2,7 +2,7 @@
   "swagger": "2.0",
   "info": {
     "title": "API Geekos Heroes of the Storm",
-    "description": "Esta es una API para la administracion de datos de Heroes of the Storm de la comunidad Geekos",
+    "description": "API para la administracion de datos de Heroes of the Storm de la comunidad Geekos",
     "termsOfService": "http://swagger.io/terms/",
     "contact": {
       "email": "lanyev@gmail.com"
