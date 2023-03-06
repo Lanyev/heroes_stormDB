@@ -24,6 +24,10 @@ const createNewHero = async (heroObj) => {
   return data;
 };
 
+const bulkCreateHeroes = async (heroObjs) => {
+  return Promise.all(heroObjs.map((hero) => createNewHero(hero)));
+};
+
 const deleteHero = async (id) => {
   const data = await Heroes.destroy({
     where: {
@@ -37,5 +41,6 @@ module.exports = {
   findAllHeroes,
   findHeroById,
   createNewHero,
+  bulkCreateHeroes,
   deleteHero,
 };
