@@ -1,15 +1,34 @@
 const heroesController = require("./heroes.controllers");
 const responses = require("../utils/handleResponses");
+const host = require("../../config").api.host;
 
 const getAllHeroes = (req, res) => {
+  const offset = Number(req.query.offset) || 0;
+
+  const limit = Number(req.query.limit) || 10;
+
+  const search = req.query.search;
+
   heroesController
-    .findAllHeroes()
+    .findAllHeroes(limit, offset, search)
     .then((data) => {
+      const nextPageUrl =
+        data.count - offset > limit
+          ? `${host}/api/v1/heroes?offset=${offset + limit}&limit=${limit}`
+          : null;
+      const prevPageUrl =
+        offset - limit >= 0
+          ? `${host}/api/v1/heroes?offset=${offset - limit}&limit=${limit}`
+          : null;
+
       responses.success({
-        status: 200,
-        data: data,
-        message: "Getting all Heroes",
         res,
+        status: 200,
+        count: data.count,
+        next: nextPageUrl,
+        prev: prevPageUrl,
+        data: data.rows,
+        message: "Getting all heroes",
       });
     })
     .catch((err) => {

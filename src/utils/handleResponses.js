@@ -10,35 +10,33 @@
 //* }
 
 //? Para respuestas exitosas
-const success = ({status, data, message, res, next, prev, count}) => {
-    res.status(status).json({
-        error: false,
-        status: status,
-        message: message,
-        count,
-        next,
-        prev,
-        data: data,
-    })
-} 
-
-
+const success = ({ status, data, message, res, next, prev, count }) => {
+  res.status(status).json({
+    error: false,
+    status: status,
+    message: message,
+    count,
+    next,
+    prev,
+    data,
+  });
+};
 
 //? Para respuestas de errores
-const error = ({status, data, message, res, fields}) => {
-    res.status(status).json({
-        error: true,
-        status: status,
-        message: message,
-        fields: fields,
-        data
-    })
-}
+const error = ({ status, data, message, res, fields }) => {
+  res.status(status).json({
+    error: true,
+    status: status,
+    message: message,
+    fields: fields,
+    data,
+  });
+};
 
 module.exports = {
-    success,
-    error
-}
+  success,
+  error,
+};
 
 //? Error de conexion
 //? Not Found

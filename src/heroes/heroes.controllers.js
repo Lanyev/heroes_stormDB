@@ -1,8 +1,21 @@
 const Heroes = require("../models/heroes.models");
 const uuid = require("uuid");
 
-const findAllHeroes = async () => {
-  const data = await Heroes.findAll();
+const findAllHeroes = async (limit, offset, search) => {
+  const queryOptions = {
+    limit: limit,
+    offset: offset,
+    where: {},
+  };
+  if (search) {
+    queryOptions.where = {
+      name: {
+        [Op.like]: `%${search}%`,
+      },
+    };
+  }
+
+  const data = await Heroes.findAndCountAll(queryOptions);
   return data;
 };
 
