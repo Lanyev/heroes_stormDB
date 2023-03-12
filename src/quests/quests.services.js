@@ -1,4 +1,4 @@
-const questController = require("./quests.controller");
+const questController = require("./quests.controllers");
 const responses = require("../utils/handleResponses");
 
 const getAllQuests = (req, res) => {
@@ -16,7 +16,7 @@ const getAllQuests = (req, res) => {
       responses.error({
         status: 400,
         data: err,
-        message: "Something bad getting all quests",
+        message: "Something went bad getting all quests",
         res,
       });
     });
@@ -70,6 +70,11 @@ const postNewQuest = (req, res) => {
         data: err,
         message: "Something bad creating the quest",
         res,
+        fields: {
+          name: "Name is required",
+          description: "Description is required",
+          reward: "Reward is required",
+        },
       });
     });
 };

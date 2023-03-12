@@ -17,61 +17,80 @@
   "paths": {
     "/api/v1/users": {
       "get": {
+        "description": "Get a list of all registered users in the Server",
         "responses": {
           "200": {
-            "description": "Obtener todos los usuarios"
+            "description": "Successful operation"
           },
-          "400": {
-            "description": "Ocurrio un error al obtener los usuarios"
+          "404": {
+            "description": "User not found"
+          },
+          "500": {
+            "description": "Internal server error"
           }
         }
       }
     },
     "/api/v1/heroes": {
       "get": {
+        "description": "Get a list of all heroes in the Heroes of the Storm game",
         "responses": {
           "200": {
-            "description": "Obtener todos los hereos"
+            "description": "Successful operation"
           },
-          "400": {
-            "description": "Ocurrio un error al obtener los heroes"
+          "404": {
+            "description": "Heroes not found"
+          },
+          "500": {
+            "description": "Internal server error"
           }
         }
       }
     },
     "/api/v1/tank": {
       "get": {
+        "description": "Get all entries from the tank table",
         "responses": {
           "200": {
-            "description": "Obtener todas las entradas de la tabla tank"
+            "description": "Successful operation"
           },
-          "400": {
-            "description": "Ocurrio un error al obtener las entradas de la tabla tank"
+          "404": {
+            "description": "Entries not found"
+          },
+          "500": {
+            "description": "Internal server error"
           }
         }
       }
     },
-
     "/api/v1/damage": {
       "get": {
+        "description": "Get all entries from the damage table",
         "responses": {
           "200": {
-            "description": "Obtener todas las entradas de la tabla damage"
+            "description": "Successful operation"
           },
-          "400": {
-            "description": "Ocurrio un error al obtener las entradas de la tabla damage"
+          "404": {
+            "description": "Entries not found"
+          },
+          "500": {
+            "description": "Internal server error"
           }
         }
       }
     },
     "/api/v1/health": {
       "get": {
+        "description": "Get all entries from the health table",
         "responses": {
           "200": {
-            "description": "Obtener todas las entradas de la tabla health"
+            "description": "Successful operation"
           },
-          "400": {
-            "description": "Ocurrio un error al obtener las entradas de la tabla health"
+          "404": {
+            "description": "Entries not found"
+          },
+          "500": {
+            "description": "Internal server error"
           }
         }
       }

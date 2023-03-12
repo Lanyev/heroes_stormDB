@@ -1,4 +1,4 @@
-const Quests = require("./quests.controller");
+const Quests = require("../models/quests.models");
 const uuid = require("uuid");
 
 const findAllQuests = async () => {
@@ -19,6 +19,8 @@ const createNewQuest = async (questObj) => {
   const newQuest = {
     id: uuid.v4(),
     name: questObj.name,
+    description: questObj.description,
+    reward: questObj.reward,
   };
   const data = await Quests.create(newQuest);
   return data;
