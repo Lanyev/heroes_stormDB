@@ -15,6 +15,7 @@ const damageRouter = require("./damage/damage.router");
 const healthRouter = require("./heal/heal.router");
 const heroRouter = require("./heroes/heroes.router");
 const questRouter = require("./quests/quests.router");
+const questRecordRouter = require("./questsRecords/questRecords.router");
 
 const app = express();
 
@@ -69,6 +70,7 @@ app.use("/api/v1/health", healthRouter);
 app.use("/api/v1/heroes", heroRouter);
 app.use("/api/v1/bulk", heroRouter);
 app.use("/api/v1/quests", questRouter);
+app.use("/api/v1/questRecords", questRecordRouter);
 
 app.use("/api/v1/docs", swaggerUi.serve, swaggerUi.setup(swaggerDoc));
 
